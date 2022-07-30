@@ -1,0 +1,30 @@
+#доработка программы
+
+tasks = {'date':'2022'}
+run = True
+
+while run:
+  command = input('Введите команду: ')
+  if command == 'show':
+    date = input('Введите дату для отображения списка задач: ')
+    if date in tasks:
+      for task in tasks[date]:
+        print ('- ', task)
+    else:
+      print('такой даты нет') 
+  elif command == 'add':
+    date = input('Введите дату для добавления задачи: ')
+    task = input('Введите название задачи: ')
+    if date in tasks:
+      #дата есть в словаре
+      #добавляем в список задачу
+      tasks[date].append(task)
+    else:
+      #создаем запись с ключем date если нет в словаре
+      tasks[date] = []
+      tasks[date].append(task)
+      print('задача', task, 'добавлена на дату', date)
+  else:
+    print('the task is not known')
+    break
+print('goodbye')    
